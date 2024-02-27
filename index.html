@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="conteiner">	
+	<div class="image">
+		<img src="images/Kitai.jpg" alt="">
+	</div>
+	<div class="date">	
+		<p>2月22日</p>
+	</div>
+
+<button type="button" class="btn  ">巡航控制</button>
+<button type="button" class="btn btn2 ">门锁</button>
+<button type="button" class="btn btn4 ">解锁门</button>
+
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group me-2" role="group" aria-label="First group">
+    <button type="button" class="btn btn3">运动模式</button>
+    <button type="button" class="btn btn3">经济模式</button>
+    <button type="button" class="btn btn3">正常模式</button>
+    <button type="button" class="btn btn3">轻量级模组</button>
+  </div>
+
+	<div class="zeeker">
+		<p>泽克</p>
+	</div>
+
+</div>
+
+<!-- Модальное окно -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Hello. That is your AutoTranslator</p>
+    <button id="startTranslation">Start</button>
+  </div>
+</div>
+
+<!-- Кнопка для отображения модального окна -->
+<button type="button" class="flesh" id="loadButton">
+    <img src="images/fleshka.png" alt="">
+</button>
+
+<!-- Элемент загрузки -->
+<div id="loader" class="loader"></div>
+
+
+
+<script>
+ 
+  var buttons = document.querySelectorAll('.btn3');
+
+  buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+
+      buttons.forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+
+      this.classList.add('active');
+    });
+  });
+</script>
+
+<script>
+// Отображение модального окна
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("loadButton");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Запуск анимации загрузки после нажатия кнопки "Начать перевод"
+document.getElementById("startTranslation").addEventListener("click", function() {
+    // Показываем анимацию загрузки
+    document.getElementById("loader").style.display = "block";
+    // Здесь можно добавить код для начала перевода
+    // Например, вызов функции, которая будет выполнять перевод
+    // После завершения перевода, можно перенаправить пользователя на другую страницу
+    setTimeout(function() {
+        // После имитированной задержки перенаправляем пользователя на другую страницу
+        window.location.href = "new.html";
+    }, 40000); // Задержка в миллисекундах (в данном случае 2 секунды)
+});
+
+
+</script>
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
